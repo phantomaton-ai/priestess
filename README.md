@@ -1,8 +1,8 @@
 # Priestess 👸
 
-Priestess is a collection of useful symbols and utilities for running applications on the `hierophant` dependency injector.
+Priestess is a collection of useful symbols and utilities for running applications on the [`hierophant`](https://github.com/phantomaton-ai/hierophant#readme) dependency injector.
 
-## Usage
+## Usage 🛠️
 
 The primary symbol provided by Priestess is the `start` sigil, which represents the entry point of an application. This can be used in conjunction with the `hierophant` library to bootstrap your application and manage its dependencies.
 
@@ -24,18 +24,14 @@ const [start] = container.resolve(priestess.start.resolve);
 start();
 ```
 
-In this example, we create a new `hierophant` container and register a provider for the `start` symbol. The provider returns a function that logs a message when executed. We then resolve the `start` symbol and call the provided function to start the application.
+## Priestess and Sigilium 🔮
 
-## Priestess and Sigilium
+Priestess uses the [`sigilium`](https://github.com/phantomaton-ai/sigilium#readme) library to define its symbols and composition patterns. If you're familiar with `sigilium`, you can extend the functionality of Priestess by creating new symbols and integrating them with your application.
 
-Priestess uses the `sigilium` library to define its symbols and composition patterns. If you're familiar with `sigilium`, you can extend the functionality of Priestess by creating new symbols and integrating them with your application.
-
-For more information on `sigilium`, please refer to the [Sigilium README](https://github.com/phantomaton-ai/sigilium/blob/main/README.md).
-
-## Contributing
+## Contributing 🦄
 
 We welcome contributions to the Priestess project! If you have any ideas, bug reports, or pull requests, please feel free to submit them on the [Priestess GitHub repository](https://github.com/phantomaton-ai/priestess).
 
-## License
+## License 🔒
 
 Priestess is licensed under the [MIT License](LICENSE).
