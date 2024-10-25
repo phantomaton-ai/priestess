@@ -1,6 +1,6 @@
 import { expect, stub } from 'lovecraft';
 import hierophant from 'hierophant';
-import sigilia from './priestess.js';
+import priestess from './priestess.js';
 
 describe('Priestess', () => {
   let container;
@@ -9,14 +9,14 @@ describe('Priestess', () => {
     container = hierophant();
   });
 
-  it('should register a provider for the start symbol', () => {
-    const startProvider = stub().returns('Hello, world!');
-    container.install(sigilia.start.provider([], startProvider));
+  it('provides a useful start symbol', () => {
+    const provider = stub().returns('Hello, world!');
+    container.install(priestess.start.provider([], () => provider));
 
-    const [startFn] = container.resolve(sigilia.start.resolve);
-    const result = startFn();
+    const [fn] = container.resolve(priestess.start.resolve);
+    const result = fn();
 
-    expect(startProvider.called).to.be.true;
+    expect(provider.called).to.be.true;
     expect(result).to.equal('Hello, world!');
   });
 });

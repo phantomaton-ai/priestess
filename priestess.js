@@ -1,7 +1,7 @@
-import start from 'sigilium';
+import sigilium from 'sigilium';
 
-const sigilia = {
-  start: sigilium.composite('start')
+const priestess = {
+  start: sigilium.singleton('start')
 };
 
-export default sigilia;
+export default priestess;
