@@ -14,6 +14,8 @@ import priestess from 'priestess';
 
 const container = hierophant();
 
+// Register resolver
+container.install(priestess.start.resolver());
 // Register a provider for the "start" symbol
 container.install(priestess.start.provider([], () => () => {
   console.log('Application started!');
