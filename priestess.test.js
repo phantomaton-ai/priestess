@@ -11,6 +11,8 @@ describe('Priestess', () => {
 
   it('provides a useful start symbol', () => {
     const provider = stub().returns('Hello, world!');
+
+    container.install(priestess.start.resolver());
     container.install(priestess.start.provider([], () => provider));
 
     const [fn] = container.resolve(priestess.start.resolve);
