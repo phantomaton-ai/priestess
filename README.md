@@ -4,9 +4,12 @@ Priestess is a collection of useful symbols and utilities for running applicatio
 
 ## Usage 🛠️
 
-The primary symbol provided by Priestess is the `start` sigil, which represents the entry point of an application. This can be used in conjunction with the `hierophant` library to bootstrap your application and manage its dependencies.
+The primary symbols provided by Priestess are:
 
-Here's an example of how to use the `start` sigil:
+- `start`: Represents the entry point of an application.
+- `input`: Provides a way to get user input for your application.
+
+Here's an example of how to use the `start` and `input` sigils:
 
 ```javascript
 import hierophant from 'hierophant';
@@ -14,21 +17,25 @@ import priestess from 'priestess';
 
 const container = hierophant();
 
-// Register resolver
-container.install(priestess.start.resolver());
-// Register a provider for the "start" symbol
+// Register providers for the "start" and "input" symbols
 container.install(priestess.start.provider([], () => () => {
-  console.log('Application started!');
+  const [inputFn] = container.resolve(priestess.input.resolve);
+  const input = inputFn();
+  console.log(`You entered: ${input}`);
 }));
+
+container.install(priestess.input.provider([], () => () => 'Hello, user!'));
 
 // Resolve the "start" symbol and execute the provided function
 const [start] = container.resolve(priestess.start.resolve);
 start();
 ```
 
+In this example, we register providers for both the `start` and `input` symbols. The `start` provider resolves the `input` symbol and logs the user's input. The `input` provider returns a static string, but in a real application, it could prompt the user for input.
+
 ## Priestess and Sigilium 🔮
 
-Priestess uses the [`sigilium`](https://github.com/phantomaton-ai/sigilium#readme) library to define its symbols and composition patterns.
+Priestess uses the [`sigilium`](https://github.com/phantomaton-ai/sigilium#readme) library to define its symbols and composition patterns. If you're familiar with `sigilium`, you can extend the functionality of Priestess by creating new symbols and integrating them with your application.
 
 ## Contributing 🦄
 
