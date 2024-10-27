@@ -35,7 +35,7 @@ In this example, we register providers for both the `start` and `input` symbols.
 
 ## Priestess and Sigilium 🔮
 
-Priestess uses the [`sigilium`](https://github.com/phantomaton-ai/sigilium#readme) library to define its symbols and composition patterns. If you're familiar with `sigilium`, you can extend the functionality of Priestess by creating new symbols and integrating them with your application.
+Priestess uses the [`sigilium`](https://github.com/phantomaton-ai/sigilium#readme) library to define its symbols and composition patterns.
 
 ## Contributing 🦄
 
